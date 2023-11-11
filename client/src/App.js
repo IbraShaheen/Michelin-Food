@@ -1,8 +1,14 @@
+import { Route, Routes } from "react-router-dom";
+import NotFound404 from "./pages/NotFound404";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold text-blue-600">Let's gooo</h1>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound404 />} />
+      </Routes>
     </>
   );
 }
