@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       unique: true,
     },
-    // Basic Information
+    // Basic Information Form
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -44,12 +44,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ARRAY(DataTypes.JSON),
       allowNull: false,
     },
-    // item_selection: {
-    //   type: DataTypes.ARRAY(DataTypes.STRING),
-    // },
-    // serving_times: {
-    //   type: DataTypes.ARRAY(DataTypes.TIME),
-    // },
 
     // Maintenance History Form
     maintenance_date_start: {
