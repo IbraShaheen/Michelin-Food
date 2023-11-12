@@ -48,7 +48,6 @@ const InfoForm = ({ allData, setAllData, done1, setDone1 }) => {
 
   const handleSubmitForm1 = (event) => {
     event.preventDefault();
-    console.log("allData from basicInfo -->", allData);
     scrollTo("#menu-form");
   };
 
@@ -61,7 +60,7 @@ const InfoForm = ({ allData, setAllData, done1, setDone1 }) => {
   }, [formValid]);
 
   return (
-    <section id="info-form" className="my-16">
+    <section id="info-form" className=" mt-32 mb-16">
       <h2 className="text-4xl font-bold text-center mb-12 text-blue-600">
         Basic Information
         <IoInformationCircle size={30} className=" ml-1 inline pb-1" />

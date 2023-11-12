@@ -47,7 +47,6 @@ const MenuForm = ({ allData, setAllData, done2, setDone2 }) => {
       ...allData,
       menu_items_serving_times: menu_items_serving_times,
     });
-    console.log("alldata from menu-->", allData);
     scrollTo("#maintenance-form");
   };
 

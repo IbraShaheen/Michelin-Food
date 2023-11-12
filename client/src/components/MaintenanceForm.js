@@ -50,12 +50,12 @@ const MaintenanceForm = ({ allData, setAllData }) => {
         "http://localhost:8080/restaurants",
         allData
       );
-      console.log(response.data);
-      if (response.status === 201) {
+      if (response.status === 201 || response.status === 200) {
         navigate("/thank-you");
       }
     } catch (error) {
       console.log(error);
+      navigate("/error");
     }
   };
 
@@ -77,7 +77,8 @@ const MaintenanceForm = ({ allData, setAllData }) => {
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="maintenance_date"
               >
-                Maintenance Date  <span className="text-red-600 font-extrabold">*</span>
+                Maintenance Date{" "}
+                <span className="text-red-600 font-extrabold">*</span>
               </label>
               <Datepicker
                 classNames=" block w-full mt-1/2 border-blue-200 border-b focus:border-none pl-3 py-1 focus:outline-none "
@@ -96,7 +97,8 @@ const MaintenanceForm = ({ allData, setAllData }) => {
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="maintenance_impact"
               >
-                Maintenance Impact  <span className="text-red-600 font-extrabold">*</span>
+                Maintenance Impact{" "}
+                <span className="text-red-600 font-extrabold">*</span>
               </label>
               <select
                 className="  w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -120,7 +122,8 @@ const MaintenanceForm = ({ allData, setAllData }) => {
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="maintenance_price"
               >
-                The price of the maintenance  <span className="text-red-600 font-extrabold">*</span>
+                The price of the maintenance{" "}
+                <span className="text-red-600 font-extrabold">*</span>
               </label>
               <input
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -169,7 +172,6 @@ const MaintenanceForm = ({ allData, setAllData }) => {
           </div>
         </form>
       </div>
-      <hr/>
     </section>
   );
 };
