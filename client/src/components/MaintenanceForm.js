@@ -59,6 +59,7 @@ const MaintenanceForm = ({ allData, setAllData }) => {
     }
   };
 
+  //Keep updating the allData state which is the parent store for the data that will be submitted
   useEffect(() => {
     setAllData({ ...allData, ...allMaintenanceData });
   }, [allMaintenanceData]);
@@ -77,7 +78,7 @@ const MaintenanceForm = ({ allData, setAllData }) => {
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="maintenance_date"
               >
-                Maintenance Date{" "}
+                Maintenance Date
                 <span className="text-red-600 font-extrabold">*</span>
               </label>
               <Datepicker
@@ -97,7 +98,7 @@ const MaintenanceForm = ({ allData, setAllData }) => {
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="maintenance_impact"
               >
-                Maintenance Impact{" "}
+                Maintenance Impact
                 <span className="text-red-600 font-extrabold">*</span>
               </label>
               <select
@@ -122,7 +123,7 @@ const MaintenanceForm = ({ allData, setAllData }) => {
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="maintenance_price"
               >
-                The price of the maintenance{" "}
+                The price of the maintenance
                 <span className="text-red-600 font-extrabold">*</span>
               </label>
               <input

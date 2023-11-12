@@ -36,6 +36,7 @@ const MenuForm = ({ allData, setAllData, done2, setDone2 }) => {
 
   const handleSubmitForm2 = (event) => {
     event.preventDefault();
+    //Changing the data to the needed format
     let filteredList = menuItems.filter(
       (item) => item.startTime && item.endTime
     );
@@ -67,7 +68,8 @@ const MenuForm = ({ allData, setAllData, done2, setDone2 }) => {
               htmlFor="itemSelect"
               className="block text-gray-700 text-sm font-bold mb-2"
             >
-              Items Selection <span className="text-red-600 font-extrabold">*</span>
+              Items Selection
+              <span className="text-red-600 font-extrabold">*</span>
             </label>
             <select
               multiple
@@ -95,7 +97,8 @@ const MenuForm = ({ allData, setAllData, done2, setDone2 }) => {
                   Serving Start Time for
                   <span className=" text-blue-600 ml-1">
                     {menuItems.find((item) => item.id === itemId)?.name}
-                  </span>  <span className="text-red-600 font-extrabold">*</span>
+                  </span>
+                  <span className="text-red-600 font-extrabold">*</span>
                 </label>
                 <input
                   type="time"
@@ -115,7 +118,8 @@ const MenuForm = ({ allData, setAllData, done2, setDone2 }) => {
                   Serving End Time for
                   <span className=" text-blue-600 ml-1">
                     {menuItems.find((item) => item.id === itemId)?.name}
-                  </span>  <span className="text-red-600 font-extrabold">*</span>
+                  </span>
+                  <span className="text-red-600 font-extrabold">*</span>
                 </label>
                 <input
                   type="time"
@@ -146,7 +150,7 @@ const MenuForm = ({ allData, setAllData, done2, setDone2 }) => {
           </button>
         </form>
       </div>
-      <hr/>
+      <hr />
     </section>
   );
 };

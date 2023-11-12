@@ -8,6 +8,7 @@ const InfoForm = ({ allData, setAllData, done1, setDone1 }) => {
   const [basicInfoData, setBasicInfoData] = useState({ landmarks: "" });
   const [formValid, fosetFormValid] = useState(false);
 
+  // To check if all the required fields are filled
   const validateForm = () => {
     const isPhoneNumberValid =
       basicInfoData.phone_number &&
@@ -17,13 +18,12 @@ const InfoForm = ({ allData, setAllData, done1, setDone1 }) => {
     const isTimeValid =
       basicInfoData.opening_hours_start < basicInfoData.opening_hours_end;
 
-    // Check if all other required fields are filled
-    const isForm1Valid =
+    const isFormValid =
       isPhoneNumberValid &&
       isTimeValid &&
       Object.values(basicInfoData).every((value) => !!value);
 
-    fosetFormValid(isForm1Valid);
+    fosetFormValid(isFormValid);
   };
 
   const handleLandmarksChange = (event) => {
@@ -38,7 +38,7 @@ const InfoForm = ({ allData, setAllData, done1, setDone1 }) => {
     setBasicInfoData({ ...basicInfoData, phone_number: value });
     validateForm();
   };
-  const handleChangeForm1 = (event) => {
+  const handleChange = (event) => {
     setBasicInfoData({
       ...basicInfoData,
       [event.target.name]: event.target.value,
@@ -46,11 +46,12 @@ const InfoForm = ({ allData, setAllData, done1, setDone1 }) => {
     validateForm();
   };
 
-  const handleSubmitForm1 = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     scrollTo("#menu-form");
   };
 
+  //Keep updating the allData state which is the parent store for the data that will be submitted
   useEffect(() => {
     setAllData({ ...allData, ...basicInfoData });
   }, [basicInfoData]);
@@ -66,14 +67,15 @@ const InfoForm = ({ allData, setAllData, done1, setDone1 }) => {
         <IoInformationCircle size={30} className=" ml-1 inline pb-1" />
       </h2>
       <div className="flex justify-center h-screen px-5">
-        <form className="w-full max-w-lg" onSubmit={handleSubmitForm1}>
+        <form className="w-full max-w-lg" onSubmit={handleSubmit}>
           <div className="flex flex-wrap -mx-3 mb-6">
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="name"
               >
-                Restaurant Name <span className="text-red-600 font-extrabold">*</span>
+                Restaurant Name
+                <span className="text-red-600 font-extrabold">*</span>
               </label>
               <input
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
@@ -81,7 +83,7 @@ const InfoForm = ({ allData, setAllData, done1, setDone1 }) => {
                 name="name"
                 type="text"
                 placeholder="Downtown Burger"
-                onChange={handleChangeForm1}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -90,7 +92,8 @@ const InfoForm = ({ allData, setAllData, done1, setDone1 }) => {
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="phone_number"
               >
-                Phone Number <span className="text-red-600 font-extrabold">*</span>
+                Phone Number
+                <span className="text-red-600 font-extrabold">*</span>
               </label>
               <PhoneInput
                 className="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none"
@@ -110,7 +113,8 @@ const InfoForm = ({ allData, setAllData, done1, setDone1 }) => {
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="street_name"
               >
-                Street Name <span className="text-red-600 font-extrabold">*</span>
+                Street Name
+                <span className="text-red-600 font-extrabold">*</span>
               </label>
               <input
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -118,7 +122,7 @@ const InfoForm = ({ allData, setAllData, done1, setDone1 }) => {
                 name="street_name"
                 type="text"
                 placeholder="123 Main Street"
-                onChange={handleChangeForm1}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -129,14 +133,15 @@ const InfoForm = ({ allData, setAllData, done1, setDone1 }) => {
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="opening_hours_start"
               >
-                Opening Time <span className="text-red-600 font-extrabold">*</span>
+                Opening Time
+                <span className="text-red-600 font-extrabold">*</span>
               </label>
               <input
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="opening_hours_start"
                 name="opening_hours_start"
                 type="time"
-                onChange={handleChangeForm1}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -145,14 +150,15 @@ const InfoForm = ({ allData, setAllData, done1, setDone1 }) => {
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 htmlFor="opening_hours_end"
               >
-                Closing Time <span className="text-red-600 font-extrabold">*</span>
+                Closing Time
+                <span className="text-red-600 font-extrabold">*</span>
               </label>
               <input
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="opening_hours_end"
                 name="opening_hours_end"
                 type="time"
-                onChange={handleChangeForm1}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -163,7 +169,8 @@ const InfoForm = ({ allData, setAllData, done1, setDone1 }) => {
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
               htmlFor="landmarks"
             >
-              Nearby Landmarks <span className="text-red-600 font-extrabold">*</span>
+              Nearby Landmarks
+              <span className="text-red-600 font-extrabold">*</span>
             </label>
             <input
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -193,7 +200,7 @@ const InfoForm = ({ allData, setAllData, done1, setDone1 }) => {
           </div>
         </form>
       </div>
-      <hr/>
+      <hr />
     </section>
   );
 };
