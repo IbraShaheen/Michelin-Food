@@ -32,12 +32,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ARRAY(DataTypes.STRING),
       allowNull: false,
     },
-    // location_latitude: {
-    //   type: DataTypes.FLOAT,
-    // },
-    // location_longitude: {
-    //   type: DataTypes.FLOAT,
-    // },
 
     // Menu Form
     menu_items_serving_times: {

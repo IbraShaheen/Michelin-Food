@@ -16,7 +16,7 @@ const Home = () => {
 
   // To check for unsaved changes whenever allData is updated
   useEffect(() => {
-    const hasChanges = Object.values(allData).length > 0;
+    const hasChanges = Object.values(allData).length > 1;
     setUnsavedChanges(hasChanges);
   }, [allData]);
 
